@@ -1,0 +1,7 @@
+export {default as sign} from './icon/sign.png'
+export {default as scan} from './icon/scan.png'
+export {default as camera} from './icon/camera.png'
+export {default as x} from './icon/x.png'
+export {default as hourglass} from './icon/hourglass.png'
+export {default as smile} from './icon/smile.png'
+export {default as success} from './icon/success.png'

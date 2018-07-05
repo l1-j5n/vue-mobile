@@ -1,0 +1,132 @@
+
+<html>
+	<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+        <meta http-equiv="Access-Control-Allow-Origin" content="*">
+
+        <meta http-equiv="Content-Type" content="textml; charset=UTF-8" />
+  		<meta http-equiv="x-dns-prefetch-control" content="on" />
+  		<meta name="apple-mobile-web-app-capable" content="yes" />
+  		<meta content="telephone=no" name="format-detection" />
+  		<meta name="full-screen" content="yes" />
+  		<meta name="x5-fullscreen" content="true" />
+
+    <link href="css/canvas_css.css" rel="stylesheet">
+    <link href="css/sp.css" rel="stylesheet">
+
+    <link media="screen and (max-width: 480px)" href="css/mw480Portrait.css" rel="stylesheet">
+    <link media="screen and (min-width: 480px) and (max-width: 1024px)" href="css/mw480Portrait.css" rel="stylesheet">
+    <link media="screen and (min-width: 1024px)" href="css/sw1024.css" rel="stylesheet">
+
+    <script language=javascript src="libs/zlib/deflate.min.js" charset="utf-8"></script>
+
+    <script language=javascript src="libs/CryptoJS v3.1.2/components/core-min.js" charset="utf-8"></script>
+    <script language=javascript src="libs/CryptoJS v3.1.2/rollups/sha1.js" charset="utf-8"></script>
+    <script language=javascript src="libs/CryptoJS v3.1.2/rollups/tripledes.js" charset="utf-8"></script>
+    <script language=javascript src="libs/CryptoJS v3.1.2/components/mode-ecb.js" charset="utf-8"></script>
+
+    <script language=javascript src="libs/anysign_all.min.js?ts=20180329" charset="utf-8"></script>
+
+    <script language=javascript src="libs/anysignCommentUI.js" charset="utf-8"></script>
+
+    <script src="anysignWebInterface.js?ts=20180329" type="text/javascript" charset="utf-8"></script>
+
+		<style>
+
+			.comment_titlecss {
+				font-size: 20px;
+				clear: both;
+			}
+
+			.comment_btncontainer {
+				/*text-align: center;
+				font-size: 30pt;
+				width: 100%;
+				clear: both;*/
+
+				text-align: center;
+				margin:0 auto
+				font-size: 40pt;
+				width: 100%;
+				clear: both;
+				position: absolute;
+				bottom: 10;
+			}
+
+			.signImagecss {
+				-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;
+				overflow: scroll;
+				border: 1px solid rgb(229, 229, 229)
+			}
+
+			.tmpcanvascss {
+				border: 1px solid rgb(229, 229, 229)
+			}
+
+			.btn_orange {
+				font-size: 20pt;
+				color: #fef4e9;
+				border: solid 1px #da7c0c;
+				background: #f78d1d;
+				background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
+			}
+		</style>
+
+        <script src="index.js?ts=20180410"></script>
+
+	</head>
+<body>
+
+	<div id="comment_dialog" style=" display:none;">
+
+		<div id="leftView">
+			<p id="comment_title"></p>
+			<div id="signImage" class="signImagecss"></div>
+
+		</div>
+
+		<div id="tmpcanvascss" class="tmpcanvascss">
+			<div id="signTitle"></div>
+			<canvas id="comment_canvas"></canvas>
+		</div>
+
+		<div id="comment_btnContainerInner" class="comment_btncontainer">
+			<input id="comment_ok" type="button" class="button orange" value="确 定">
+			<input id="comment_back" type="button" class="button orange" value="后退">
+			<input id="comment_cancel" type="button" class="button orange" value="取 消">
+		</div>
+
+	</div>
+
+	<div style="text-align:center">
+		<div id="dialog" style=" display:none;">
+			<!-- 显示签名区域-->
+			<div id="anysign_title" style="color:#333333;" width="100%" height="10%">请投保人<span style="font-size:20pt;"> 李 元 </span>签名</div>
+			<div id="container" onmousedown="return false;">
+				<canvas id="anysignCanvas" width="2">
+				</canvas>
+			</div>
+
+			<div id="single_scrollbar" style="text-align: center;  vertical-align:middle; " width="100%">
+				<span id="single_scroll_text"> *滑动操作：</span>
+				<input id="single_scrollbar_up" type="button" class="button orange" value="左移" />
+				<input id="single_scrollbar_down" type="button" class="button orange" value="右移" />
+			</div>
+
+			<div id="btnContainerOuter" width="100%">
+
+				<div id="btnContainerInner" style="text-align: center;   font-size:5pt;" width="100%">
+					<input id="btnOK" type="button" class="button orange" value="确 定" onclick="sign_confirm();" />
+					<input id="btnClear" type="button" class="button orange" value="清 屏" onclick="javascript:clear_canvas();">
+					<input id="btnCancel" type="button" class="button orange" value="取 消" onclick="cancelSign();">
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+</body>
+
+</html>

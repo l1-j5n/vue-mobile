@@ -1,0 +1,29 @@
+[
+  {
+    "key": "app",
+    "entry": [
+      "babel-polyfill",
+      "./src/application/main/main.js"
+    ],
+    "filename": "index.html",
+    "template": "index.html",
+    "prdHtmlWebpackPlugin": "../dist/index.html",
+    "chunks": [
+      "manifest",
+      "vendor",
+      "app"
+    ]
+  },
+  {
+    "key": "share",
+    "entry": [ "babel-polyfill", "./src/application/share/index.js"],
+    "filename": "share.html",
+    "template": "index.html",
+    "prdHtmlWebpackPlugin": "../dist/share.html",
+    "chunks": [
+      "manifest",
+      "vendor",
+      "share"
+    ]
+  }
+]
